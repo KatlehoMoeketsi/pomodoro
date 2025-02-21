@@ -5,8 +5,6 @@ from kivy.uix.button import ButtonBehavior
 from kivy.clock import Clock
 from kivy.properties import StringProperty, BooleanProperty
 
-WORK_MIN = 25
-timer = None
 
 # A custom button that acts like an image button
 class PlayPauseButton(ButtonBehavior, Image):
@@ -24,6 +22,7 @@ class NextButton(ButtonBehavior, Image):
 class PomodoroScreen(MDBoxLayout):
 
     timer_text = StringProperty("25:00")
+    cycle_label = StringProperty("WORK!!")
     is_running = BooleanProperty(False)
 
     def __init__(self, **kwargs):
@@ -68,6 +67,11 @@ class PomodoroScreen(MDBoxLayout):
 
     def on_refresh_button_pressed(self):
         print("refresh button pressed!")
+        if self.timer_event:
+            self.timer_event.cancel()
+        self.is_running = False
+        self.remaining_time = self.total_time
+        self.timer_text = "25:00"
 
 
     def on_next_button_pressed(self):
