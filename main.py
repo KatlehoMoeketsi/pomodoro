@@ -3,13 +3,13 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.image import Image
 from kivy.uix.button import ButtonBehavior
 from kivy.clock import Clock
-from kivy.properties import  StringProperty
+from kivy.properties import StringProperty, BooleanProperty
 
 WORK_MIN = 25
 timer = None
 
 # A custom button that acts like an image button
-class PlayButton(ButtonBehavior, Image):
+class PlayPauseButton(ButtonBehavior, Image):
     pass
 
 # A custom button that acts like an image button
@@ -24,34 +24,51 @@ class NextButton(ButtonBehavior, Image):
 class PomodoroScreen(MDBoxLayout):
 
     timer_text = StringProperty("25:00")
+    is_running = BooleanProperty(False)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.total_time = 25 * 60
         self.remaining_time = self.total_time
         self.timer_event = None
 
-    def on_play_button_pressed(self):
+    def on_play_pause_button_pressed(self):
         print("Play button pressed!")
+        if not self.is_running:
+            print("Starting Timer")
+            self.is_running = True
+            self.start_timer()
+        else:
+            print("Pausing Timer")
+            self.is_running = False
+            self.pause_timer()
+
+
+    def start_timer(self):
         if self.timer_event:
            self.timer_event.cancel()
-
-        self.remaining_time = self.total_time
-
         self.timer_event = Clock.schedule_interval(self.update_timer, 1)
+
+    def pause_timer(self):
+        if self.timer_event:
+            self.timer_event.cancel()
+
 
     def update_timer(self, dt):
         if self.remaining_time >0:
             self.remaining_time -=1
             minutes = self.remaining_time // 60
             seconds = self.remaining_time % 60
-            self.timer_text = f"{minutes:02d} : {seconds: 02d}"
+            self.timer_text = f"{minutes:02d}:{seconds:02d}"
         else:
-            Clock.unschedule(self.update_timer)
             print("Timer complete")
             self.timer_text = "Time's up!"
+            self.is_running = False
+            Clock.unschedule(self.update_timer)
 
     def on_refresh_button_pressed(self):
         print("refresh button pressed!")
+
 
     def on_next_button_pressed(self):
         print("next button pressed!")

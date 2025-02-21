@@ -53,12 +53,12 @@
                 Widget:
                     size_hint:1, None
 
-                PlayButton:
+                PlayPauseButton:
                     id: play_button
                     size: "60dp", "60dp"
                     size_hint: None, None
-                    source: "assets/play.png"
-                    on_press: root.on_play_button_pressed()
+                    source: "assets/play.png" if not root.is_running else "assets/pause.png"
+                    on_press: root.on_play_pause_button_pressed()
                 Widget:
                     size_hint:1, None
 
