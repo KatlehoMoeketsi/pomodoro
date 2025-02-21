@@ -1,0 +1,71 @@
+<PomodoroScreen>:
+    orientation: 'vertical'
+    spacing: dp(20)
+    padding: dp(20)
+
+    MDLabel:
+        text: "Pomodoro Timer"
+        halign: "center"
+        font_style: "H2"
+
+    MDCard:
+        size_hint: None, None
+        size: "280dp", "180dp"
+        pos_hint: {"center_x": 0.5}
+        elevation: 1
+        MDLabel:
+            text: "Timer Here"
+            halign: "center"
+
+    MDCard:
+        size_hint: None, None
+        size: "280dp", "180dp"
+        pos_hint: {"center_x": 0.5}
+        elevation: 1
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: None, None
+            size: self.parent.size
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            padding: dp(10)
+            spacing: dp(10)
+
+
+            BoxLayout:
+                orientation: "horizontal"
+                height: self.minimum_height
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 1, None
+
+                Widget:
+                    size_hint:1, None
+
+                RefreshButton:
+                    id: refresh_button
+                    size: "60dp", "60dp"
+                    size_hint: None, None
+                    source: "assets/refresh.png"
+                    on_press: root.on_refresh_button_pressed()
+                Widget:
+                    size_hint:1, None
+
+                PlayButton:
+                    id: play_button
+                    size: "60dp", "60dp"
+                    size_hint: None, None
+                    source: "assets/play.png"
+                    on_press: root.on_play_button_pressed()
+                Widget:
+                    size_hint:1, None
+
+                NextButton:
+                    id: next_button
+                    size: "60dp", "60dp"
+                    size_hint: None, None
+                    source: "assets/next.png"
+                    on_press: root.on_next_button_pressed()
+
+
+                Widget:
+                    size_hint:1, None
