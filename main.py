@@ -2,7 +2,8 @@ from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.image import Image
 from kivy.uix.button import ButtonBehavior
-from kivy.properties import ObjectProperty
+from kivy.clock import Clock
+from kivy.properties import  StringProperty
 
 WORK_MIN = 25
 timer = None
@@ -21,10 +22,33 @@ class NextButton(ButtonBehavior, Image):
 
 # Define a custom widget that will be used in your KV file.
 class PomodoroScreen(MDBoxLayout):
-    play_button = ObjectProperty(None)
+
+    timer_text = StringProperty("25:00")
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.total_time = 25 * 60
+        self.remaining_time = self.total_time
+        self.timer_event = None
 
     def on_play_button_pressed(self):
         print("Play button pressed!")
+        if self.timer_event:
+           self.timer_event.cancel()
+
+        self.remaining_time = self.total_time
+
+        self.timer_event = Clock.schedule_interval(self.update_timer, 1)
+
+    def update_timer(self, dt):
+        if self.remaining_time >0:
+            self.remaining_time -=1
+            minutes = self.remaining_time // 60
+            seconds = self.remaining_time % 60
+            self.timer_text = f"{minutes:02d} : {seconds: 02d}"
+        else:
+            Clock.unschedule(self.update_timer)
+            print("Timer complete")
+            self.timer_text = "Time's up!"
 
     def on_refresh_button_pressed(self):
         print("refresh button pressed!")

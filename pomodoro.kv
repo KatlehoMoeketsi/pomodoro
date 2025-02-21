@@ -4,6 +4,7 @@
     padding: dp(20)
 
     MDLabel:
+
         text: "Pomodoro Timer"
         halign: "center"
         font_style: "H2"
@@ -14,8 +15,10 @@
         pos_hint: {"center_x": 0.5}
         elevation: 1
         MDLabel:
-            text: "Timer Here"
+            id: timer_label
+            text: root.timer_text
             halign: "center"
+            font_style: "H2"
 
     MDCard:
         size_hint: None, None
