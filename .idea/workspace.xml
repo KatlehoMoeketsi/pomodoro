@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle">
+    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Change window size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.kv" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.kv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740148001293</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Change window size">
+      <option name="closed" value="true" />
+      <created>1740252809268</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740252809268</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -142,6 +151,7 @@
     <MESSAGE value="Click play button to start the countdown." />
     <MESSAGE value="Make the pause button appear if the play button has been pressed" />
     <MESSAGE value="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle" />
+    <MESSAGE value="Change window size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change window size" />
   </component>
 </project>

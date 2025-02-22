@@ -23,7 +23,7 @@ class PomodoroScreen(MDBoxLayout):
 
     timer_text = StringProperty("25:00")
     break_text = StringProperty("5:00")
-    cycle_label = StringProperty("WORK!!")
+    cycle_label = StringProperty("Press play to begin!!")
     is_running = BooleanProperty(False)
 
     def __init__(self, **kwargs):
@@ -36,8 +36,10 @@ class PomodoroScreen(MDBoxLayout):
         print("Play button pressed!")
         if not self.is_running:
             print("Starting Timer")
+            self.cycle_label = "Working"
             self.is_running = True
             self.start_timer()
+
         else:
             print("Pausing Timer")
             self.is_running = False
@@ -52,6 +54,7 @@ class PomodoroScreen(MDBoxLayout):
     def pause_timer(self):
         if self.timer_event:
             self.timer_event.cancel()
+            self.cycle_label = "Paused"
 
 
     def update_timer(self, dt):
