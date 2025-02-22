@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Make the pause button appear if the play button has been pressed">
+    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro.kv" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.kv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,13 +126,22 @@
       <option name="project" value="LOCAL" />
       <updated>1740133828670</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle">
+      <option name="closed" value="true" />
+      <created>1740148001293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740148001293</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit with Frontend Code created" />
     <MESSAGE value="Click play button to start the countdown." />
     <MESSAGE value="Make the pause button appear if the play button has been pressed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the pause button appear if the play button has been pressed" />
+    <MESSAGE value="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the reset button set the timer back to 25 minutes and add a text to indicate the current cycle" />
   </component>
 </project>

@@ -4,7 +4,7 @@ from kivy.uix.image import Image
 from kivy.uix.button import ButtonBehavior
 from kivy.clock import Clock
 from kivy.properties import StringProperty, BooleanProperty
-
+from kivy.core.window import Window
 
 # A custom button that acts like an image button
 class PlayPauseButton(ButtonBehavior, Image):
@@ -22,6 +22,7 @@ class NextButton(ButtonBehavior, Image):
 class PomodoroScreen(MDBoxLayout):
 
     timer_text = StringProperty("25:00")
+    break_text = StringProperty("5:00")
     cycle_label = StringProperty("WORK!!")
     is_running = BooleanProperty(False)
 
@@ -79,6 +80,7 @@ class PomodoroScreen(MDBoxLayout):
 
 class Pomodoro(MDApp):
     def build(self):
+        Window.size = (400, 650)
         # When you use a KV file with the same name as your app (pomodoro.kv),
         # it loads automatically. You just need to return the root widget.
         return PomodoroScreen()
