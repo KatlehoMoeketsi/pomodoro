@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added next session functionality which manually triggers the next session">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added an icon and replaced image button with normal buttons to see if i can fix the disappearing assets issue. I'll implement  dynamic path logic in next test.">
       <change beforePath="$PROJECT_DIR$/pomodoro.kv" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.kv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741244742822</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added an icon and replaced image button with normal buttons to see if i can fix the disappearing assets issue. I'll implement  dynamic path logic in next test.">
+      <option name="closed" value="true" />
+      <created>1741284035176</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741284035176</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +210,7 @@
     <MESSAGE value="Added label to indicate which session were on, and added a switch session function that switches between break time and work time." />
     <MESSAGE value="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions." />
     <MESSAGE value="Added next session functionality which manually triggers the next session" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added next session functionality which manually triggers the next session" />
+    <MESSAGE value="Added an icon and replaced image button with normal buttons to see if i can fix the disappearing assets issue. I'll implement  dynamic path logic in next test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an icon and replaced image button with normal buttons to see if i can fix the disappearing assets issue. I'll implement  dynamic path logic in next test." />
   </component>
 </project>

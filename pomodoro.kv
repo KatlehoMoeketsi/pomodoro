@@ -80,7 +80,8 @@
                     size: "60dp", "60dp"
                     size_hint: None, None
                     background_normal: '' # Make the background transparent
-                    background_down: '' # Make the background transparent                    on_press: root.on_play_pause_button_pressed()
+                    background_down: '' # Make the background transparent
+                    on_press: root.on_play_pause_button_pressed()
                     Image:
                         source: "assets/play.png" if not root.is_running else "assets/pause.png"
                         center: self.parent.center
