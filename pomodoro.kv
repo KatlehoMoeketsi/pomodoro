@@ -5,22 +5,25 @@
 
     MDLabel:
         text: "Pomodoro Timer"
-        halign: "center"
         font_style: "H3"
+        halign: "center"
+
 
     MDLabel:
         text: "Session: " + str(root.session_count)
         halign: "center"
         id: cycle_label
         pos_hint: {"center_x": 0.5}
-        font_style: "H5"
+        font_style:"H4"
+
 
     MDLabel:
         text:root.session
         halign: "center"
         id: session
         pos_hint: {"center_x": 0.5}
-        font_style: "H5"
+        font_style:"H5"
+
 
 
     MDCard:
@@ -32,7 +35,8 @@
             id: timer_label
             text: root.timer_text
             halign: "center"
-            font_style: "H3"
+            font_style:"H5"
+
 
     MDCard:
         size_hint: None, None
@@ -50,6 +54,7 @@
             spacing: dp(10)
 
 
+
             BoxLayout:
                 orientation: "horizontal"
                 height: self.minimum_height
@@ -59,29 +64,39 @@
                 Widget:
                     size_hint:1, None
 
-                RefreshButton:
+                Button:
                     id: refresh_button
                     size: "60dp", "60dp"
                     size_hint: None, None
-                    source: "assets/refresh.png"
+                    background_normal: "assets/refresh.png"
+                    background_down: "assets/refresh.png" #Optional, but good practice.
                     on_press: root.on_refresh_button_pressed()
+
                 Widget:
                     size_hint:1, None
 
-                PlayPauseButton:
+                Button:
                     id: play_button
                     size: "60dp", "60dp"
                     size_hint: None, None
-                    source: "assets/play.png" if not root.is_running else "assets/pause.png"
-                    on_press: root.on_play_pause_button_pressed()
+                    background_normal: '' # Make the background transparent
+                    background_down: '' # Make the background transparent                    on_press: root.on_play_pause_button_pressed()
+                    Image:
+                        source: "assets/play.png" if not root.is_running else "assets/pause.png"
+                        center: self.parent.center
+                        size: self.parent.size #match the button size
+                        allow_stretch: False #prevent distortion
+                        keep_ratio: True #prevent distortion
+
                 Widget:
                     size_hint:1, None
 
-                NextButton:
+                Button:
                     id: next_button
                     size: "60dp", "60dp"
                     size_hint: None, None
-                    source: "assets/next.png"
+                    background_normal: "assets/next.png"
+                    background_down: "assets/next.png" #optional, but good practice.
                     on_press: root.on_next_button_pressed()
 
 

@@ -8,6 +8,12 @@ from kivy.properties import StringProperty, BooleanProperty, NumericProperty
 from kivy.core.window import Window
 from plyer import notification
 
+
+
+
+
+
+
 # A custom button that acts like an image button
 class PlayPauseButton(ButtonBehavior, Image):
     pass
@@ -23,7 +29,7 @@ class NextButton(ButtonBehavior, Image):
 # Define a custom widget that will be used in your KV file.
 class PomodoroScreen(MDBoxLayout):
 
-    timer_text = StringProperty("00:05")
+    timer_text = StringProperty("25:00")
     break_text = StringProperty("05:00")
     cycle_label = StringProperty("Press play to begin!!")
     session = StringProperty("Work")
@@ -92,11 +98,11 @@ class PomodoroScreen(MDBoxLayout):
         self.remaining_time = self.total_time
         self.timer_text = "25:00"
         self.is_work_session = True
-        self.session_count = 0  # Reset cycle count
+        self.session_count = 1  # Reset cycle count
 
 
     def switch_session(self):
-        """Switches between work and breaks"""
+
         if self.is_work_session:
             self.session_count+=1 #increment completed pomodoro cycles
             if self.session_count % 4 == 0:
@@ -117,14 +123,6 @@ class PomodoroScreen(MDBoxLayout):
             self.session = "Work"
             self.play_sound(self.work_sound)
 
-        #Show notifications using plyer
-        notification.notify(
-            title= "Pomodoro Timer",
-            message = message,
-            app_name = "Pomodoro App",
-            timeout= 5
-        )
-
         self.is_work_session = not self.is_work_session
         self.timer_text = f"{self.remaining_time // 60:02d}:00"
         self.on_play_pause_button_pressed()
@@ -140,6 +138,7 @@ class PomodoroScreen(MDBoxLayout):
 class Pomodoro(MDApp):
     def build(self):
         Window.size = (400, 650)
+        self.theme_cls.theme_style = "Light"
         # When you use a KV file with the same name as your app (pomodoro.kv),
         # it loads automatically. You just need to return the root widget.
         return PomodoroScreen()

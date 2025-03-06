@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions.">
+    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added next session functionality which manually triggers the next session">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.kv" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.kv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/kayda/PycharmProjects/Pomodoro/assets"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kayda/PycharmProjects/TechMerceDictionaryProject&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kayda\PycharmProjects\Pomodoro\assets" />
@@ -170,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741244253248</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added next session functionality which manually triggers the next session">
+      <option name="closed" value="true" />
+      <created>1741244742822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741244742822</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +203,7 @@
     <MESSAGE value="Initial change to the cycle label. Shows when program is playing, and when paused." />
     <MESSAGE value="Added label to indicate which session were on, and added a switch session function that switches between break time and work time." />
     <MESSAGE value="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions." />
+    <MESSAGE value="Added next session functionality which manually triggers the next session" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added next session functionality which manually triggers the next session" />
   </component>
 </project>
