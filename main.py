@@ -24,7 +24,7 @@ class NextButton(ButtonBehavior, Image):
 class PomodoroScreen(MDBoxLayout):
 
     timer_text = StringProperty("00:05")
-    break_text = StringProperty("00:05")
+    break_text = StringProperty("05:00")
     cycle_label = StringProperty("Press play to begin!!")
     session = StringProperty("Work")
     is_running = BooleanProperty(False)
@@ -33,8 +33,8 @@ class PomodoroScreen(MDBoxLayout):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.total_time = 5 #25 minute work period
-        self.short_break_time = 5 # 5 minute breaks
+        self.total_time = 25 * 60 #25 minute work period
+        self.short_break_time = 5 * 60 # 5 minute breaks
         self.long_break_time = 15 * 60 #long break after 4 cycles
         self.remaining_time = self.total_time
         self.timer_event = None
@@ -132,6 +132,10 @@ class PomodoroScreen(MDBoxLayout):
 
     def on_next_button_pressed(self):
         print("next button pressed!")
+        if self.timer_event:
+            self.timer_event.cancel() #stop current timer
+        self.switch_session()   #manually trigger session switch
+
 
 class Pomodoro(MDApp):
     def build(self):

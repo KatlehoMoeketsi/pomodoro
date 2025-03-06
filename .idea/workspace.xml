@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added label to indicate which session were on, and added a switch session function that switches between break time and work time.">
+    <list default="true" id="ce0b1725-811c-418f-9495-79883cdbc3cb" name="Changes" comment="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -162,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741243931902</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions.">
+      <option name="closed" value="true" />
+      <created>1741244253248</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741244253248</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,6 +192,7 @@
     <MESSAGE value="Change window size" />
     <MESSAGE value="Initial change to the cycle label. Shows when program is playing, and when paused." />
     <MESSAGE value="Added label to indicate which session were on, and added a switch session function that switches between break time and work time." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added label to indicate which session were on, and added a switch session function that switches between break time and work time." />
+    <MESSAGE value="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added plyer notifications to create a notification when a switch happens. Added the bells indicating work and break time sessions." />
   </component>
 </project>
