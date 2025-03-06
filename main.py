@@ -6,6 +6,7 @@ from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 from kivy.properties import StringProperty, BooleanProperty, NumericProperty
 from kivy.core.window import Window
+from plyer import notification
 
 # A custom button that acts like an image button
 class PlayPauseButton(ButtonBehavior, Image):
@@ -101,17 +102,28 @@ class PomodoroScreen(MDBoxLayout):
             if self.session_count % 4 == 0:
                 self.remaining_time = self.long_break_time # Long break after 4 cycles
                 self.session = "Long Break"
+                message = "Time for a long break!"
                 print("Long Break Cycle")
             else:
                 self.remaining_time = self.short_break_time # Regular break time
                 self.session = "Short Break"
+                message = "Time for a short break!"
                 print("Short Break started")
             self.play_sound(self.break_sound)
         else:
             self.remaining_time = self.total_time
             print("Back to work")
+            message = "Back to work!"
             self.session = "Work"
             self.play_sound(self.work_sound)
+
+        #Show notifications using plyer
+        notification.notify(
+            title= "Pomodoro Timer",
+            message = message,
+            app_name = "Pomodoro App",
+            timeout= 5
+        )
 
         self.is_work_session = not self.is_work_session
         self.timer_text = f"{self.remaining_time // 60:02d}:00"
