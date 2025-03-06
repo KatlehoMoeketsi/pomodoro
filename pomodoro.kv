@@ -1,19 +1,27 @@
 <PomodoroScreen>:
     orientation: 'vertical'
-    spacing: dp(20)
+    spacing: dp(15)
     padding: dp(20)
 
     MDLabel:
         text: "Pomodoro Timer"
         halign: "center"
-        font_style: "H2"
+        font_style: "H3"
 
     MDLabel:
-        text: root.cycle_label
+        text: "Session: " + str(root.session_count)
         halign: "center"
         id: cycle_label
         pos_hint: {"center_x": 0.5}
         font_style: "H5"
+
+    MDLabel:
+        text:root.session
+        halign: "center"
+        id: session
+        pos_hint: {"center_x": 0.5}
+        font_style: "H5"
+
 
     MDCard:
         size_hint: None, None

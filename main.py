@@ -2,8 +2,9 @@ from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.image import Image
 from kivy.uix.button import ButtonBehavior
+from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
-from kivy.properties import StringProperty, BooleanProperty
+from kivy.properties import StringProperty, BooleanProperty, NumericProperty
 from kivy.core.window import Window
 
 # A custom button that acts like an image button
@@ -21,22 +22,30 @@ class NextButton(ButtonBehavior, Image):
 # Define a custom widget that will be used in your KV file.
 class PomodoroScreen(MDBoxLayout):
 
-    timer_text = StringProperty("25:00")
-    break_text = StringProperty("5:00")
+    timer_text = StringProperty("00:05")
+    break_text = StringProperty("00:05")
     cycle_label = StringProperty("Press play to begin!!")
+    session = StringProperty("Work")
     is_running = BooleanProperty(False)
+    is_work_session = True
+    session_count = NumericProperty(1)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.total_time = 25 * 60
+        self.total_time = 5 #25 minute work period
+        self.short_break_time = 5 # 5 minute breaks
+        self.long_break_time = 15 * 60 #long break after 4 cycles
         self.remaining_time = self.total_time
         self.timer_event = None
+
+        #Load sound files
+        self.work_sound = SoundLoader.load("assets/work_start.mp3")
+        self.break_sound = SoundLoader.load("assets/break_start.mp3")
 
     def on_play_pause_button_pressed(self):
         print("Play button pressed!")
         if not self.is_running:
             print("Starting Timer")
-            self.cycle_label = "Working"
             self.is_running = True
             self.start_timer()
 
@@ -45,6 +54,10 @@ class PomodoroScreen(MDBoxLayout):
             self.is_running = False
             self.pause_timer()
 
+
+    def play_sound(self, sound):
+        if sound:
+            sound.play()
 
     def start_timer(self):
         if self.timer_event:
@@ -58,8 +71,8 @@ class PomodoroScreen(MDBoxLayout):
 
 
     def update_timer(self, dt):
-        if self.remaining_time >0:
-            self.remaining_time -=1
+        if self.remaining_time > 0:
+            self.remaining_time -= 1
             minutes = self.remaining_time // 60
             seconds = self.remaining_time % 60
             self.timer_text = f"{minutes:02d}:{seconds:02d}"
@@ -68,6 +81,7 @@ class PomodoroScreen(MDBoxLayout):
             self.timer_text = "Time's up!"
             self.is_running = False
             Clock.unschedule(self.update_timer)
+            self.switch_session()
 
     def on_refresh_button_pressed(self):
         print("refresh button pressed!")
@@ -76,6 +90,32 @@ class PomodoroScreen(MDBoxLayout):
         self.is_running = False
         self.remaining_time = self.total_time
         self.timer_text = "25:00"
+        self.is_work_session = True
+        self.session_count = 0  # Reset cycle count
+
+
+    def switch_session(self):
+        """Switches between work and breaks"""
+        if self.is_work_session:
+            self.session_count+=1 #increment completed pomodoro cycles
+            if self.session_count % 4 == 0:
+                self.remaining_time = self.long_break_time # Long break after 4 cycles
+                self.session = "Long Break"
+                print("Long Break Cycle")
+            else:
+                self.remaining_time = self.short_break_time # Regular break time
+                self.session = "Short Break"
+                print("Short Break started")
+            self.play_sound(self.break_sound)
+        else:
+            self.remaining_time = self.total_time
+            print("Back to work")
+            self.session = "Work"
+            self.play_sound(self.work_sound)
+
+        self.is_work_session = not self.is_work_session
+        self.timer_text = f"{self.remaining_time // 60:02d}:00"
+        self.on_play_pause_button_pressed()
 
 
     def on_next_button_pressed(self):
